@@ -1,0 +1,5 @@
+PyAudio
+playsound==1.2.2
+gTTS
+SpeechRecognition
+schedule
