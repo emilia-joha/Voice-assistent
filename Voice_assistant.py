@@ -22,56 +22,58 @@ def talk():
     return data
 
 
-def light_movement_1():
+def easy_movement_1():
     respond("Time to move for a bit.")
     time.sleep(0.5)
     respond("jump 3 times")
 
-def light_movement_2():
+def fun():
     pass
 
-def medium_movement_1():
-    pass
+def time_check_movement(movement):
+    strTime=datetime.datetime.now().strftime("%M")
 
-def medium_movement_2():
-    pass
+    if strTime== "05" and movement=="easy" or strTime == "15" and movement=="easy" or strTime == "25" and movement=="easy" or strTime == "35" and movement=="easy"or strTime == "45" and movement=="easy" or strTime == "55" and movement=="easy":
+        easy_movement_1()
+    
 
-def hard_movement_1():
-    pass
-
-def hard_movement_2():
-    pass
-
-
-def time_check(movement):
+def time_check_routine():
     strTime=datetime.datetime.now().strftime("%H:%M")
 
-    if strTime== "11:59" and movement=="light" or strTime == "15:00" and movement=="light":
-        light_movement_1()
+    if strTime== "08:00:
+        respond("It's time to get up.")
     
-    elif strTime=="12:00" and movement=="light":
-        light_movement_2()
+    elif strTime== "12:00":
+        respond("It's time to have a break and eat som lunch.")
+
+    elif strTime== "15:00":
+        respond("It's time to have a short break.")
+
+    elif strTime== "16:30:00":
+        respond("You have done a good job today, time to put it aside.")
+
+
+def time_check_drink():
+    strTime=datetime.datetime.now().strftime("%M")
     
-    if strTime== "09:00" and movement=="medium" or strTime == "15:00" and movement=="medium":
-        medium_movement_1()
+    if strTime== "08" or strTime == "18" or strTime == "28" or strTime == "38"or strTime == "48" or strTime == "58":
+        respond("Don't forget to drink a glass of water")
+
+def time_check_fun():
+    strTime=datetime.datetime.now().strftime("%M")
     
-    elif strTime=="12:00" and movement=="medium":
-        medium_movement_2()
-    
-    if strTime== "09:00" and movement=="hard" or strTime == "15:00" and movement=="hard":
-        hard_movement_1()
-    
-    elif strTime=="12:00" and movement=="hard":
-        hard_movement_2()
+    if strTime== "09" or strTime == "19" or strTime == "29" or strTime == "39"or strTime == "49" or strTime == "59":
+        fun()
 
 
 def check(movement):
     schedule.every(1).minutes.do(time_check, movement)
+    schedule.every(1).minutes.do(time_check_routine)
+    schedule.every(1).minutes.do(time_check_drink)
   
     while True:
         schedule.run_pending()
         time.sleep(1)
-
 
 
 def respond(output):
@@ -85,19 +87,19 @@ def respond(output):
 
 if __name__=='__main__':
     num=0
-    output="Hi, my name is Polar Bear. I will help you with your daily routines. "
+    output="Hi, my name is Pingu. I will help you with your daily routines. "
     respond(output)
           
     while(1):
-        respond("First you have to select movement difficulty; light, medium or hard.")
+        respond("First you have to select movement difficulty; easy, medium or hard.")
         text=talk().lower()
         
         if text==0:
             continue
             
-        if "light" in text:
-            respond("You will have the light movment program over the day.")
-            check("light")
+        if "easy" in text:
+            respond("You will have the easy movment program over the day.")
+            check("easy")
             
             
         elif "medium" in text:
