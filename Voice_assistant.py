@@ -58,7 +58,7 @@ def easy_movement():
     random_movement_str=movement_dict[random_movement]["movement"]
 
     respond(random_movement_str)
-    time.sleep(30)
+    time.sleep(15)
     respond("Good job!")
 
 
@@ -140,6 +140,7 @@ if __name__=='__main__':
         if text==0:
             continue
             
+           
         if "easy" in text or "e" in text or "sy" in text or "dc" in text:
             respond("You will have the easy movment program over the day.")
             check("easy")
