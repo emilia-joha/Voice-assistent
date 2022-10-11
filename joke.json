@@ -1,12 +1,13 @@
-{"jokes": [
+{"1":
     {
-        "id": 1,
+    
         "joke": "hejhop"
     },
+"2":
     {
-        "id": 1,
-        "joke": "hej"
-
+    
+        "joke": "hej",
+        "answer":"då"
     }
-]}
+}
    

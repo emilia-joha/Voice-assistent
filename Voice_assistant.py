@@ -6,6 +6,7 @@ import os
 import schedule
 import time
 import random
+import json
 
 
 def talk():
@@ -28,6 +29,7 @@ def movement_file():
         with open("easy_movement.json") as movement_file:
             movements=json.load(movement_file)
             return movements
+            
     
     except:
         print("Tyvärr gick inte filen att öppna.")
@@ -37,7 +39,7 @@ def movement_file():
 def joke_file():
     try:
         with open("joke.json") as joke_file:
-            jokes=json.load(movement_file)
+            jokes=json.load(joke_file)
             return jokes
     
     except:
@@ -45,27 +47,34 @@ def joke_file():
         exit()
 
 
-def random(dictio):
-    random=random.choice(list(dictio))
-    return random
+def random_func(dictio):
+    random_thing=random.choice(list(dictio))
+    return random_thing
 
 
-def easy_movement_1():
+def easy_movement():
     movement_dict=movement_file()
-    random_movement=random(movement_dict)
+    random_movement=random_func(movement_dict)
     random_movement_str=movement_dict[random_movement]["movement"]
 
     respond(random_movement_str)
+    time.sleep(30)
+    respond("Good job!")
 
 
 def fun():
     joke_dict=joke_file()
-    random_joke=random(joke_dict)
-    random_joke_str=joke_dict[random_joke]["joke"]
+    random_joke=random_func(joke_dict)
+    random_joke_question=joke_dict[random_joke]["joke"]
+    random_joke_answer=joke_dict[random_joke]["answer"]
 
     respond("Do you want to hear something fun?")
     time.sleep(0.5)
-    respond(random_joke_str)
+    respond(random_joke_question)
+
+    if random_joke_answer != " ":
+        respond(random_roke_answer)
+
     respond("ha ha ha")
 
 
@@ -73,7 +82,7 @@ def time_check_movement(movement):
     strTime=datetime.datetime.now().strftime("%M")
 
     if strTime== "05" and movement=="easy" or strTime == "15" and movement=="easy" or strTime == "25" and movement=="easy" or strTime == "35" and movement=="easy"or strTime == "45" and movement=="easy" or strTime == "55" and movement=="easy":
-        easy_movement_1()
+        easy_movement()
     
 
 def time_check_routine():
@@ -131,7 +140,7 @@ if __name__=='__main__':
         if text==0:
             continue
             
-        if "easy" in text or "e" in text or "sy" in text:
+        if "easy" in text or "e" in text or "sy" in text or "dc" in text:
             respond("You will have the easy movment program over the day.")
             check("easy")
             
