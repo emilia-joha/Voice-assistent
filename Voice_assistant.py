@@ -5,6 +5,7 @@ from gtts import gTTS
 import os
 import schedule
 import time
+import random
 
 
 def talk():
@@ -17,18 +18,56 @@ def talk():
         data=input.recognize_google(audio)
         print("your question is, " + data)
     except sr.UnknownValueError:
-        print("Sorry I did not hear your question, please repeat again.")
+        respond("Sorry I did not hear your question, please repeat again.")
     
     return data
 
 
+def movement_file():
+    try:
+        with open("easy_movement.json") as movement_file:
+            movements=json.load(movement_file)
+            return movements
+    
+    except:
+        print("Tyvärr gick inte filen att öppna.")
+        exit()
+
+
+def joke_file():
+    try:
+        with open("joke.json") as joke_file:
+            jokes=json.load(movement_file)
+            return jokes
+    
+    except:
+        print("Tyvärr gick inte filen att öppna.")
+        exit()
+
+
+def random(dictio):
+    random=random.choice(list(dictio))
+    return random
+
+
 def easy_movement_1():
-    respond("Time to move for a bit.")
-    time.sleep(0.5)
-    respond("jump 3 times")
+    movement_dict=movement_file()
+    random_movement=random(movement_dict)
+    random_movement_str=movement_dict[random_movement]["movement"]
+
+    respond(random_movement_str)
+
 
 def fun():
-    pass
+    joke_dict=joke_file()
+    random_joke=random(joke_dict)
+    random_joke_str=joke_dict[random_joke]["joke"]
+
+    respond("Do you want to hear something fun?")
+    time.sleep(0.5)
+    respond(random_joke_str)
+    respond("ha ha ha")
+
 
 def time_check_movement(movement):
     strTime=datetime.datetime.now().strftime("%M")
@@ -40,7 +79,7 @@ def time_check_movement(movement):
 def time_check_routine():
     strTime=datetime.datetime.now().strftime("%H:%M")
 
-    if strTime== "08:00:
+    if strTime== "08:00":
         respond("It's time to get up.")
     
     elif strTime== "12:00":
@@ -49,7 +88,7 @@ def time_check_routine():
     elif strTime== "15:00":
         respond("It's time to have a short break.")
 
-    elif strTime== "16:30:00":
+    elif strTime== "16:30":
         respond("You have done a good job today, time to put it aside.")
 
 
@@ -58,16 +97,11 @@ def time_check_drink():
     
     if strTime== "08" or strTime == "18" or strTime == "28" or strTime == "38"or strTime == "48" or strTime == "58":
         respond("Don't forget to drink a glass of water")
-
-def time_check_fun():
-    strTime=datetime.datetime.now().strftime("%M")
-    
-    if strTime== "09" or strTime == "19" or strTime == "29" or strTime == "39"or strTime == "49" or strTime == "59":
         fun()
 
 
 def check(movement):
-    schedule.every(1).minutes.do(time_check, movement)
+    schedule.every(1).minutes.do(time_check_movement, movement)
     schedule.every(1).minutes.do(time_check_routine)
     schedule.every(1).minutes.do(time_check_drink)
   
@@ -97,7 +131,7 @@ if __name__=='__main__':
         if text==0:
             continue
             
-        if "easy" in text:
+        if "easy" in text or "e" in text or "sy" in text:
             respond("You will have the easy movment program over the day.")
             check("easy")
             
@@ -110,5 +144,3 @@ if __name__=='__main__':
             respond("You will have the hard movment program over the day.") 
             check("hard")
         
-        else:
-           respond("This program is not available")
