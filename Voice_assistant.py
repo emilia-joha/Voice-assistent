@@ -24,13 +24,35 @@ def talk():
     return data
 
 
-def movement_file():
+def easy_movement_file():
     try:
         with open("easy_movement.json") as movement_file:
             movements=json.load(movement_file)
             return movements
             
+    except:
+        print("Tyvärr gick inte filen att öppna.")
+        exit()
+
+
+def medium_movement_file():
+    try:
+        with open("medium_movement.json") as movement_file:
+            movements=json.load(movement_file)
+            return movements
     
+    except:
+        print("Tyvärr gick inte filen att öppna.")
+        exit()
+
+
+def hard_movement_file():
+    try:
+        with open("hard_movement.json") as movement_file:
+            movements=json.load(movement_file)
+            return movements
+            
+
     except:
         print("Tyvärr gick inte filen att öppna.")
         exit()
@@ -53,13 +75,32 @@ def random_func(dictio):
 
 
 def easy_movement():
-    movement_dict=movement_file()
+    movement_dict=easy_movement_file()
     random_movement=random_func(movement_dict)
     random_movement_str=movement_dict[random_movement]["movement"]
 
     respond(random_movement_str)
-    time.sleep(15)
+    time.sleep(20)
     respond("Good job!")
+
+def medium_movement():
+    movement_dict=medium_movement_file()
+    random_movement=random_func(movement_dict)
+    random_movement_str=movement_dict[random_movement]["set"]
+
+    respond(random_movement_str)
+    time.sleep(30)
+    respond("well done!")
+
+
+def hard_movement():
+    movement_dict=hard_movement_file()
+    random_movement=random_func(movement_dict)
+    random_movement_str=movement_dict[random_movement]["set"]
+
+    respond(random_movement_str)
+    time.sleep(15)
+    respond("wow, what a super job!")
 
 
 def fun():
@@ -73,9 +114,8 @@ def fun():
     respond(random_joke_question)
 
     if random_joke_answer != " ":
-        respond(random_roke_answer)
-
-    respond("ha ha ha")
+        respond(random_joke_answer)
+        respond("ha ha ha")
 
 
 def time_check_movement(movement):
@@ -83,7 +123,11 @@ def time_check_movement(movement):
 
     if strTime== "05" and movement=="easy" or strTime == "15" and movement=="easy" or strTime == "25" and movement=="easy" or strTime == "35" and movement=="easy"or strTime == "45" and movement=="easy" or strTime == "55" and movement=="easy":
         easy_movement()
-    
+    elif strTime== "05" and movement=="medium" or strTime == "15" and movement=="medium" or strTime == "25" and movement=="medium" or strTime == "35" and movement=="medium"or strTime == "45" and movement=="medium" or strTime == "55" and movement=="medium":
+        medium_movement()
+
+    elif strTime== "05" and movement=="hard" or strTime == "15" and movement=="hard" or strTime == "25" and movement=="hard" or strTime == "35" and movement=="hard"or strTime == "45" and movement=="hard" or strTime == "55" and movement=="hard":
+        hard_movement()
 
 def time_check_routine():
     strTime=datetime.datetime.now().strftime("%H:%M")
@@ -141,7 +185,7 @@ if __name__=='__main__':
             continue
             
            
-        if "easy" in text or "e" in text or "sy" in text or "dc" in text:
+        if "easy" in text:
             respond("You will have the easy movment program over the day.")
             check("easy")
             

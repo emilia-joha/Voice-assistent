@@ -1,0 +1,22 @@
+{
+
+    "1":{
+        "set" : "Let's see 20 squats, come on"
+    },
+    "2":{
+        "set" : "Let's see 20 push-ups, lets go!"
+    },
+   "3": {
+        "set" : "Let's see 30 sit-ups, come on"
+    },
+    "4":{
+        "set" : "Let's see 20 crunches, let's go"
+    },
+    "5":{
+        "set" : "Let's see 30 lunges, come on"
+    },
+    "6":{
+        "set" : "Let's see 20 burpees, let's go"
+    }
+
+}

@@ -1,14 +1,80 @@
 {"1":
     {
     
-        "joke": "hejhop",
+        "joke": "The cold and winters are severe",
         "answer": " "
     },
 "2":
     {
     
-        "joke": "hej",
-        "answer":"då"
+        "joke": "Seeing reindeer walking on the streets is common",
+        "answer":" "
+    },
+"3":{
+
+        "joke": "Polar bears can be found near homes and cities",
+        "answer":" "
+    },
+"4":{
+
+        "joke": "During the winter most stay at home and face-to-face contact with one another is rare as people don't come out on the streets due to the cold.",
+        "answer":" "
+    },
+"5":{
+
+        "joke": "People tend to be very friendly and stick together as it's easier to survive in larger communities than alone.",
+        "answer":" "
+    },
+"6":{
+
+        "joke": "It's common for people to carry extra baggage in their car, like extra clothes, tools and food in case a stranded person in need of help is found. This is also for one's own safety of course.",
+        "answer":" "
+    },
+"7":{
+
+        "joke": "Possessing a gun is common in some parts (possibly due to the dangerous wilderness)",
+        "answer":" "
+    },
+"8":{
+
+        "joke": "Most everyday people work in the service industry.",
+        "answer":" "
+    },
+"9":{
+
+        "joke": "Most people who live in the Arctic survive by subsistence (hunting, fishing, etc.)",
+        "answer":" "
+    },
+"10":{
+        "jokes" : "Global warming is a joke.",
+        "answer" : "Even the Antarctic ice sheets are cracking up."
+    },
+"11":{
+        "jokes" : "What did the detective in the Arctic say to the suspect?",
+        "answer" : "Where were you on the night of September to March?"
+    },
+"12":{
+        "jokes" : "What animal loves and hates the Arctic?",
+        "answer" : "The Bi-polar Bear"
+    },
+"13":{
+        "jokes" : "What do you call a monkey in the Arctic?",
+        "answer" : "Lost."
+    },
+"14":{
+        "jokes" : "Arctic expedition?",
+        "answer" : "In Sweden we call it go to work"
+    },
+"15":{
+        "jokes" : "Who split the arctic sea?",
+        "answer" : "Eskimoses"
+    },
+"16":{
+        "jokes" : "What does an arctic wildlife photographer get from sitting around too long?",
+        "answer" : "Polaroids."
+    },
+"17":{
+        "jokes" : "Some people think that the Arctic and the Antarctic are the same....",
+        "answer" : "But in fact, they're polar opposites."
     }
 }
-   
